@@ -8,7 +8,12 @@ const index = (req, res) => {
 
 //SHOW
 const show = (req, res) => {
+  const id = req.params.id;
 
+  // trovo l elemento interno all array attraverso l id con il metodo find
+  const post = posts.find(item => item.id === id);
+
+  res.json(posts)
 }
 
 //STORE
