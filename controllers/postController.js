@@ -18,7 +18,7 @@ const show = (req, res) => {
 
 //STORE
 const store = (req, res) => {
-
+  res.json (`Creazione di un nuovo post`)
 }
 
 //UPDATE 
