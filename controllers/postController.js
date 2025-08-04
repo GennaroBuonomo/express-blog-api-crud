@@ -3,7 +3,7 @@ const posts = require('../data/posts.js');
 
 //INDEX
 const index = (req, res) => {
-
+  res.json(posts);
 }
 
 //SHOW
