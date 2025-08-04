@@ -1,37 +1,34 @@
-//importo l' array dei posts
-const posts = require('../data/posts.js');
+//importo express
+const express = require('express');
 
+//definisco un' istanza della classe Router di express
+const router = express.Router();
+
+//definisco le rotte per i post
 //INDEX
-const index = (req, res) => {
-  res.json(posts);
-}
+router.get('/', (req, res) => {
+  res.send('Elenco dei post')
+});
 
 //SHOW
-const show = (req, res) => {
-  const id = req.params.id;
+router.get('/:id', (req, res) =>{
+  res.send(`Dettaglio dei post con id ${req.params.id}`);
+});
 
-  // trovo l elemento interno all array attraverso l id con il metodo find
-  const post = posts.find(item => item.id === id);
+//CREATE 
+router.post('/', (req, res) => {
+  res.send('Creazione di un nuovo post');
+});
 
-  res.json(posts)
-}
+//UPDATE
+router.put('/:id', (req, res) => {
+  res.send(`Modifica totale dei post in id ${req.params.id}`);
+});
 
-//STORE
-const store = (req, res) => {
-  res.json (`Creazione di un nuovo post`)
-}
+//DELATE
+router.delete('/:id', (req, res) => {
+  res.send(`Cancellazione dei post con id ${req.params.id}`);  
+});
 
-//UPDATE 
-const update = (req, res) => {
-
-}
-
-//modify
-const modify = (req, res) => {
-
-}
-
-//DESTROY
-const destroy = (req, res) => {
-
-}
+//Esporto il router
+module.express = router;
