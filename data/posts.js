@@ -31,4 +31,4 @@
     }
   ];
 
-  res.json(posts);
+  module.exports = posts;

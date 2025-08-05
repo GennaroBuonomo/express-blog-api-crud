@@ -1,7 +1,10 @@
+// recupero i posts
+const posts = require('../data/posts.js');
+
 //definisco le rotte per i post
 //INDEX
 const index = (req, res) => {
-  res.send(`Invio dell' elenco dei post`)
+  res.json(posts)
 }
 
 //SHOW
