@@ -26,9 +26,10 @@ router.put('/:id', (req, res) => {
 });
 
 //DELATE
-router.delate('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   res.send(`Cancellazione dei post con id ${req.params.id}`);  
 });
 
+
 //Esporto il router
-module.express = router;
+module.export = router;
