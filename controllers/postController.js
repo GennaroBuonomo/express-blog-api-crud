@@ -9,7 +9,12 @@ const index = (req, res) => {
 
 //SHOW
 const show = (req, res) => {
-  res.send(`Dettaglio del post con id ${req.params.id}`)
+  const id = parseInt(req.params.id);
+
+  //recupero il post con l'id
+  const post = posts.find(item => item.id === id);
+
+  res.json(post);
 }
 
 //STORE
@@ -19,17 +24,29 @@ const store = (req, res) => {
 
 //UPDATE
 const update = (req, res) => {
-  res.send(`Modifica totale del post con id ${req.params.id}`)
+  const id = req.params.id;
+
+  res.send(`Modifica totale del post con id ${id}`)
 }
 
 //MODIFY
 const modify = (req, res) => {
-  res.send(`Modifica parziale del post con id ${req.params.id}`)
+  const id = req.params.id;
+
+  const post = posts.find(item => item.id === id)
+  res.send(`Modifica parziale del post con id ${id}`)
 }
 
 //DESTROY
 const destroy = (req, res) => {
-  res.send(`Cancellazione del post con id ${req.params.id}`)
+  const id = parseInt(req.params.id);
+
+  const post = posts.find(item => item.id === id)
+
+  //Cancellare il post dall array
+  posts.splice(posts.indexOf(post), 1);
+  //restituisco lo status 204
+  res.sendStatus(204)
 }
 
 module.exports = {
