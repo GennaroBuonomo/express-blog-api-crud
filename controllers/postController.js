@@ -10,7 +10,7 @@ const index = (req, res) => {
 //SHOW
 const show = (req, res) => {
   const id = parseInt(req.params.id);
-
+  console.log(req.body);
   //recupero il post con l'id
   const post = posts.find(item => item.id === id);
 

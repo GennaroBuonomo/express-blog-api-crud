@@ -13,6 +13,9 @@ const postsRouter = require('./routers/postRouter');
 //INSERIMENTO DEL MIDDLEWARE PER I FILE STATICI
 app.use(express.static('public'));
 
+//UTILIZZO IL BODY PARSER JSON PER RECUPERARE LE INFORMAZIONI DAL BODY DI UNA RISCHIESTA
+app.use(express.json());
+
 //DEFINISCO LE ROTTE DEI POST
 app.use('/posts', postsRouter);
 
