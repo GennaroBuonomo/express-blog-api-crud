@@ -19,7 +19,22 @@ const show = (req, res) => {
 
 //STORE
 const store = (req, res) => {
-  res.send(`Creazione di un nuovo post`)
+  //genero il nuovo id
+  const newID = posts[posts.lenght - 1].id + 1;
+
+  //recupero i dati nel body della richiesta
+  const { titolo, contenuto, immagine, tags} = req.body;
+
+  //pusho l'oggetto nell'array
+  posts.push({
+    id: newID,
+    titolo,
+    contenuto,
+    immagine,
+    tags
+  });
+
+  res.ststus(201).json({ result: true, message: "inserimento avvenuto con successo"})
 }
 
 //UPDATE
