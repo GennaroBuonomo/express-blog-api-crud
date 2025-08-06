@@ -9,6 +9,8 @@ const port = 3000;
 
 //IMPORTO IL MIDDLEWARE NOTFOUND
 const notFound = require('./middlewares/notFound.js');
+//IMPORTO IL MIDDLEWARE ERRORHADLER
+const errorsHandler = require('./middlewares/errorsHandler.js');
 
 //IMPORTO IL FILE ROUTER PER I POST
 const postsRouter = require('./routers/postRouter');
@@ -24,6 +26,8 @@ app.use('/posts', postsRouter);
 
 //UTILIZZO FLOBALE NOTFOUND
 app.use(notFound);
+//UTILIZZO FLOBALE ERRORHANDLER
+app.use(errorsHandler);
 
 //DEFINISCO LA ROTTA BASE
 app.get('/', (req, res) => {
