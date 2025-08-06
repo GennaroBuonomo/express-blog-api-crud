@@ -42,9 +42,20 @@ const store = (req, res) => {
 
 //UPDATE
 const update = (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
 
-  res.send(`Modifica totale del post con id ${id}`)
+  //recupero i dati passati tramite il body della richiesta
+  const { titolo, contenuto, immagine, tags} = req.body;
+
+  //Recupero il post con l'id passato come parametro
+  const post = posts.find(item => item.id === id)
+
+  post.titolo = titolo;
+  post.contenuto = contenuto;
+  post.immagine = immagine;
+  post.tags = tags;
+
+  res.send(post);
 }
 
 //MODIFY
