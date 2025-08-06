@@ -20,21 +20,24 @@ const show = (req, res) => {
 //STORE
 const store = (req, res) => {
   //genero il nuovo id
-  const newID = posts[posts.lenght - 1].id + 1;
+  const newId = posts[posts.length - 1].id + 1;
 
-  //recupero i dati nel body della richiesta
+    //recupero i dati nel body della richiesta
   const { titolo, contenuto, immagine, tags} = req.body;
-
-  //pusho l'oggetto nell'array
-  posts.push({
-    id: newID,
+  
+  //Creo l'oggetto nell'array
+  const newPost = {
+    id: newId,
     titolo,
     contenuto,
     immagine,
     tags
-  });
+  }
 
-  res.ststus(201).json({ result: true, message: "inserimento avvenuto con successo"})
+   //pusho l'oggetto nell'array
+   posts.push(newPost);
+
+   res.status(201).json(newPost);
 }
 
 //UPDATE
