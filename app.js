@@ -7,6 +7,9 @@ const app = express();
 //DEFINISCO LA PORTA 3000
 const port = 3000;
 
+//IMPORTO IL MIDDLEWARE NOTFOUND
+const notFound = require('./middlewares/notFound.js');
+
 //IMPORTO IL FILE ROUTER PER I POST
 const postsRouter = require('./routers/postRouter');
 
@@ -18,6 +21,9 @@ app.use(express.json());
 
 //DEFINISCO LE ROTTE DEI POST
 app.use('/posts', postsRouter);
+
+//UTILIZZO FLOBALE NOTFOUND
+app.use(notFound);
 
 //DEFINISCO LA ROTTA BASE
 app.get('/', (req, res) => {
